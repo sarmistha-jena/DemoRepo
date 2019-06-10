@@ -1,0 +1,930 @@
+[
+  {
+    "line": 7,
+    "elements": [
+      {
+        "line": 17,
+        "name": "User should be able to register in the system with valid all inputs",
+        "description": "",
+        "id": "as-a-user-on-the-nodes-marketplace,-when-user-wants-to-trade-on-the-marketplace-the-system;user-should-be-able-to-register-in-the-system-with-valid-all-inputs;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 12,
+            "name": "I have access to the application",
+            "match": {},
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 13,
+            "name": "I provide all details like \"9999\",\"demo\",\"merchant\",\"parentExternalId\",\"fullName\",\"phoneNumber\",\"e-mail\",\"addressLine1\",\"addressLine2\",\"zipCode\",\"city\"",
+            "match": {},
+            "matchedColumns": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 14,
+            "name": "the response code should be 201",
+            "match": {},
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 10,
+            "name": "@smoke"
+          },
+          {
+            "line": 5,
+            "name": "@Sprint-1"
+          },
+          {
+            "line": 10,
+            "name": "@regression"
+          },
+          {
+            "line": 1,
+            "name": "@NWS-3"
+          },
+          {
+            "line": 10,
+            "name": "@Create_Account"
+          },
+          {
+            "line": 3,
+            "name": "@author_sjena"
+          },
+          {
+            "line": 4,
+            "name": "@reviewer_gnpan"
+          }
+        ]
+      },
+      {
+        "line": 26,
+        "name": "User should be able to get contact details with valid external id",
+        "description": "",
+        "id": "as-a-user-on-the-nodes-marketplace,-when-user-wants-to-trade-on-the-marketplace-the-system;user-should-be-able-to-get-contact-details-with-valid-external-id;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 21,
+            "name": "I have access to the application",
+            "match": {},
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 22,
+            "name": "I try to access my account details with externalId \"12345\"",
+            "match": {},
+            "matchedColumns": [
+              0
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 23,
+            "name": "the response code should be 200",
+            "match": {},
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 19,
+            "name": "@smoke"
+          },
+          {
+            "line": 5,
+            "name": "@Sprint-1"
+          },
+          {
+            "line": 19,
+            "name": "@regression"
+          },
+          {
+            "line": 1,
+            "name": "@NWS-3"
+          },
+          {
+            "line": 3,
+            "name": "@author_sjena"
+          },
+          {
+            "line": 19,
+            "name": "@Get_AccountDetails"
+          },
+          {
+            "line": 4,
+            "name": "@reviewer_gnpan"
+          }
+        ]
+      },
+      {
+        "line": 53,
+        "name": "User should not be able to view account details with invalid external id",
+        "description": "",
+        "id": "as-a-user-on-the-nodes-marketplace,-when-user-wants-to-trade-on-the-marketplace-the-system;user-should-not-be-able-to-view-account-details-with-invalid-external-id;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 48,
+            "name": "I have access to the application",
+            "match": {},
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 49,
+            "name": "I try to get account details with invalid externalId \"qwe123rty\"",
+            "match": {},
+            "matchedColumns": [
+              0
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 50,
+            "name": "the response code should be 404",
+            "match": {},
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 5,
+            "name": "@Sprint-1"
+          },
+          {
+            "line": 1,
+            "name": "@NWS-3"
+          },
+          {
+            "line": 3,
+            "name": "@author_sjena"
+          },
+          {
+            "line": 46,
+            "name": "@Get_AccountDetails"
+          },
+          {
+            "line": 4,
+            "name": "@reviewer_gnpan"
+          }
+        ]
+      },
+      {
+        "line": 62,
+        "name": "User should be able to update her contact details with valid inputs",
+        "description": "",
+        "id": "as-a-user-on-the-nodes-marketplace,-when-user-wants-to-trade-on-the-marketplace-the-system;user-should-be-able-to-update-her-contact-details-with-valid-inputs;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 57,
+            "name": "I have access to the application",
+            "match": {},
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 58,
+            "name": "I opt to update all details like \"12345\",\"demoUser\",\"0987654321\",\"demo.user@test.in\",\"Demo address\",\"Demo state\",\"987654\",\"demo\"",
+            "match": {},
+            "matchedColumns": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 59,
+            "name": "the response code should be 200",
+            "match": {},
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "line": 55,
+            "name": "@smoke"
+          },
+          {
+            "line": 5,
+            "name": "@Sprint-1"
+          },
+          {
+            "line": 55,
+            "name": "@regression"
+          },
+          {
+            "line": 55,
+            "name": "@Update_Account"
+          },
+          {
+            "line": 1,
+            "name": "@NWS-3"
+          },
+          {
+            "line": 3,
+            "name": "@author_sjena"
+          },
+          {
+            "line": 4,
+            "name": "@reviewer_gnpan"
+          }
+        ]
+      },
+      {
+        "line": 71,
+        "name": "User should be able to update her contact details with only mandatory input",
+        "description": "",
+        "id": "as-a-user-on-the-nodes-marketplace,-when-user-wants-to-trade-on-the-marketplace-the-system;user-should-be-able-to-update-her-contact-details-with-only-mandatory-input;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 66,
+            "name": "I have access to the application",
+            "match": {},
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 67,
+            "name": "I opt to update mandatory detail like fullname \"demoUserCHANGED\" with \"12345\"",
+            "match": {},
+            "matchedColumns": [
+              0,
+              7
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 68,
+            "name": "the response code should be 200",
+            "match": {},
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "line": 5,
+            "name": "@Sprint-1"
+          },
+          {
+            "line": 64,
+            "name": "@Update_Account"
+          },
+          {
+            "line": 1,
+            "name": "@NWS-3"
+          },
+          {
+            "line": 3,
+            "name": "@author_sjena"
+          },
+          {
+            "line": 4,
+            "name": "@reviewer_gnpan"
+          }
+        ]
+      },
+      {
+        "line": 81,
+        "name": "User should not be able to update account with invalid inputs",
+        "description": "",
+        "id": "as-a-user-on-the-nodes-marketplace,-when-user-wants-to-trade-on-the-marketplace-the-system;user-should-not-be-able-to-update-account-with-invalid-inputs;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 76,
+            "name": "I have access to the application",
+            "match": {},
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 77,
+            "name": "I opt to update all details like \"12345\",\"\",\"0987654321\",\"demo.user@test.in\",\"Demo address\",\"Demo state\",\"987654\",\"demo\"",
+            "match": {},
+            "matchedColumns": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 78,
+            "name": "the response code should be 400",
+            "match": {},
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "line": 5,
+            "name": "@Sprint-1"
+          },
+          {
+            "line": 74,
+            "name": "@Update_Account"
+          },
+          {
+            "line": 1,
+            "name": "@NWS-3"
+          },
+          {
+            "line": 3,
+            "name": "@author_sjena"
+          },
+          {
+            "line": 4,
+            "name": "@reviewer_gnpan"
+          }
+        ]
+      },
+      {
+        "line": 82,
+        "name": "User should not be able to update account with invalid inputs",
+        "description": "",
+        "id": "as-a-user-on-the-nodes-marketplace,-when-user-wants-to-trade-on-the-marketplace-the-system;user-should-not-be-able-to-update-account-with-invalid-inputs;;3",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 76,
+            "name": "I have access to the application",
+            "match": {},
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 77,
+            "name": "I opt to update all details like \"12345\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"",
+            "match": {},
+            "matchedColumns": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 78,
+            "name": "the response code should be 400",
+            "match": {},
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "line": 5,
+            "name": "@Sprint-1"
+          },
+          {
+            "line": 74,
+            "name": "@Update_Account"
+          },
+          {
+            "line": 1,
+            "name": "@NWS-3"
+          },
+          {
+            "line": 3,
+            "name": "@author_sjena"
+          },
+          {
+            "line": 4,
+            "name": "@reviewer_gnpan"
+          }
+        ]
+      },
+      {
+        "line": 91,
+        "name": "User should not be able to update account with invalid external id",
+        "description": "",
+        "id": "as-a-user-on-the-nodes-marketplace,-when-user-wants-to-trade-on-the-marketplace-the-system;user-should-not-be-able-to-update-account-with-invalid-external-id;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 86,
+            "name": "I have access to the application",
+            "match": {},
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 87,
+            "name": "I try to update account with invalid external id \"qwe123ff\"",
+            "match": {},
+            "matchedColumns": [
+              0
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 88,
+            "name": "the response code should be 400",
+            "match": {},
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 5,
+            "name": "@Sprint-1"
+          },
+          {
+            "line": 84,
+            "name": "@Update_Account"
+          },
+          {
+            "line": 1,
+            "name": "@NWS-3"
+          },
+          {
+            "line": 3,
+            "name": "@author_sjena"
+          },
+          {
+            "line": 4,
+            "name": "@reviewer_gnpan"
+          }
+        ]
+      },
+      {
+        "line": 101,
+        "name": "User should be able to delete I account using valid external Id",
+        "description": "",
+        "id": "as-a-user-on-the-nodes-marketplace,-when-user-wants-to-trade-on-the-marketplace-the-system;user-should-be-able-to-delete-i-account-using-valid-external-id;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 96,
+            "name": "I have access to the application",
+            "match": {},
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 97,
+            "name": "I try to delete my account with external id  \"123456\"",
+            "match": {},
+            "matchedColumns": [
+              0
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 98,
+            "name": "the response code should be 200",
+            "match": {},
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 94,
+            "name": "@smoke"
+          },
+          {
+            "line": 5,
+            "name": "@Sprint-1"
+          },
+          {
+            "line": 94,
+            "name": "@regression"
+          },
+          {
+            "line": 1,
+            "name": "@NWS-3"
+          },
+          {
+            "line": 3,
+            "name": "@author_sjena"
+          },
+          {
+            "line": 4,
+            "name": "@reviewer_gnpan"
+          },
+          {
+            "line": 94,
+            "name": "@Delete_Account"
+          }
+        ]
+      },
+      {
+        "line": 110,
+        "name": "User should not be able to delete user account using invalid external Id",
+        "description": "",
+        "id": "as-a-user-on-the-nodes-marketplace,-when-user-wants-to-trade-on-the-marketplace-the-system;user-should-not-be-able-to-delete-user-account-using-invalid-external-id;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 105,
+            "name": "I have access to the application",
+            "match": {},
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 106,
+            "name": "I try to delete my account with invalid external Id \"123456\"",
+            "match": {},
+            "matchedColumns": [
+              0
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 107,
+            "name": "the response code should be 404",
+            "match": {},
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 5,
+            "name": "@Sprint-1"
+          },
+          {
+            "line": 1,
+            "name": "@NWS-3"
+          },
+          {
+            "line": 3,
+            "name": "@author_sjena"
+          },
+          {
+            "line": 4,
+            "name": "@reviewer_gnpan"
+          },
+          {
+            "line": 103,
+            "name": "@Delete_Account"
+          }
+        ]
+      },
+      {
+        "line": 119,
+        "name": "User should be able to register in the system with mandatory inputs",
+        "description": "",
+        "id": "as-a-user-on-the-nodes-marketplace,-when-user-wants-to-trade-on-the-marketplace-the-system;user-should-be-able-to-register-in-the-system-with-mandatory-inputs;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 114,
+            "name": "I have access to the application",
+            "match": {},
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 115,
+            "name": "I provide all details like \"8888\",\"\",\"merchant\",\"\",\"fullName\",\"\",\"\",\"\",\"\",\"\",\"\"",
+            "match": {},
+            "matchedColumns": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 116,
+            "name": "the response code should be 201",
+            "match": {},
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 5,
+            "name": "@Sprint-1"
+          },
+          {
+            "line": 1,
+            "name": "@NWS-3"
+          },
+          {
+            "line": 112,
+            "name": "@Create_Account"
+          },
+          {
+            "line": 3,
+            "name": "@author_sjena"
+          },
+          {
+            "line": 4,
+            "name": "@reviewer_gnpan"
+          }
+        ]
+      },
+      {
+        "line": 128,
+        "name": "User should not be able to register in the system with invalid inputs",
+        "description": "",
+        "id": "as-a-user-on-the-nodes-marketplace,-when-user-wants-to-trade-on-the-marketplace-the-system;user-should-not-be-able-to-register-in-the-system-with-invalid-inputs;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 123,
+            "name": "I have access to the application",
+            "match": {},
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 124,
+            "name": "I provide all details like \"7777\",\"\",\"merchant\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"",
+            "match": {},
+            "matchedColumns": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 125,
+            "name": "the response code should be 400",
+            "match": {},
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 5,
+            "name": "@Sprint-1"
+          },
+          {
+            "line": 1,
+            "name": "@NWS-3"
+          },
+          {
+            "line": 121,
+            "name": "@Create_Account"
+          },
+          {
+            "line": 3,
+            "name": "@author_sjena"
+          },
+          {
+            "line": 4,
+            "name": "@reviewer_gnpan"
+          }
+        ]
+      },
+      {
+        "line": 129,
+        "name": "User should not be able to register in the system with invalid inputs",
+        "description": "",
+        "id": "as-a-user-on-the-nodes-marketplace,-when-user-wants-to-trade-on-the-marketplace-the-system;user-should-not-be-able-to-register-in-the-system-with-invalid-inputs;;3",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 123,
+            "name": "I have access to the application",
+            "match": {},
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 124,
+            "name": "I provide all details like \"6666\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"",
+            "match": {},
+            "matchedColumns": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 125,
+            "name": "the response code should be 400",
+            "match": {},
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 5,
+            "name": "@Sprint-1"
+          },
+          {
+            "line": 1,
+            "name": "@NWS-3"
+          },
+          {
+            "line": 121,
+            "name": "@Create_Account"
+          },
+          {
+            "line": 3,
+            "name": "@author_sjena"
+          },
+          {
+            "line": 4,
+            "name": "@reviewer_gnpan"
+          }
+        ]
+      }
+    ],
+    "name": "As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System",
+    "description": "(payments platform) should create a User Account, Update account, Get account details, Delete account",
+    "id": "as-a-user-on-the-nodes-marketplace,-when-user-wants-to-trade-on-the-marketplace-the-system",
+    "keyword": "Feature",
+    "uri": "test.feature",
+    "tags": [
+      {
+        "line": 1,
+        "name": "@NWS-3"
+      },
+      {
+        "line": 3,
+        "name": "@author_sjena"
+      },
+      {
+        "line": 4,
+        "name": "@reviewer_gnpan"
+      },
+      {
+        "line": 5,
+        "name": "@Sprint-1"
+      }
+    ]
+  }
+]

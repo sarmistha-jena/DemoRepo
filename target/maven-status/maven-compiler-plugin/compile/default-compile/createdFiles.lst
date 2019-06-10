@@ -1,0 +1,6 @@
+utils\RestUtil.class
+utils\Log.class
+utils\ReadConfigFile.class
+com\test\services\BankAccountPage.class
+utils\DatabaseVerification.class
+com\test\services\UserAccountPage.class

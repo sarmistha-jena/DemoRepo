@@ -1,0 +1,2671 @@
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset='UTF-8' /> 
+	<meta name='description' content='' />
+	<meta name='robots' content='noodp, noydir' />
+	<meta name='viewport' content='width=device-width, initial-scale=1' />
+
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css'>
+	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	
+		<link href='http://cdn.rawgit.com/anshooarora/extentreports-java/9fa70d0ed9c34a8ed445ceee3494d3d7de7f8918/dist/css/extent.css' type='text/css' rel='stylesheet' />
+	
+	<title>Extent</title>
+
+</head>
+	<body class='extent standard default hide-overflow '>
+		<div id='theme-selector' alt='Click to toggle theme. To enable by default, use theme configuration.' title='Click to toggle theme. To enable by default, use theme configuration.'>
+			<span><i class='material-icons'>desktop_windows</i></span>
+		</div>
+
+<nav>
+	<div class="nav-wrapper">
+		<a href="#!" class="brand-logo blue darken-3">Extent</a>
+
+		<!-- slideout menu -->
+		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
+						<li class='waves-effect'><a href='#!' view='category-view' onclick="configureView(1)"><i class='material-icons'>label_outline</i></a></li>
+			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
+			<li class='waves-effect'><a href='#!' onclick="configureView(-1)" view='testrunner-logs-view'><i class='material-icons'>note</i></a></li>
+		</ul>
+
+		<!-- report name -->
+		<span class='report-name'>Cucumber Report</span>
+		
+		<!-- report headline -->
+		<span class='report-headline'></span>
+
+		<!-- nav-right -->
+		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
+			<a href='#!'>
+				<span class='label suite-start-time'>Jun 10, 2019 4:37:24 PM</span>
+			</a>
+			<a href='#!'>
+				<span class='label'>v3.0.3</span>
+			</a>
+		</ul>
+	</div>
+</nav>
+		<!-- container -->
+		<div class='container'>
+
+<div id='test-view' class='view'>
+				
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- test toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>warning</i> Status
+				</a>
+				<ul id='tests-toggle' class='dropdown-content'>
+											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+						<li status='skip'><a href='#!'>Skip <i class='material-icons cyan-text'>redo</i></a></li>
+					<li class='divider'></li>
+					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
+				</ul>
+			</div>
+			<!-- test toggle -->
+
+			<!-- category toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button category-toggle' data-activates='category-toggle' data-constrainwidth='false' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>local_offer</i> Category
+				</a>
+				<ul id='category-toggle' class='dropdown-content'>
+					<li><a href='#'>@NWS-3</a></li>
+					<li><a href='#'>@author_sjena</a></li>
+					<li><a href='#'>@reviewer_gnpan</a></li>
+					<li><a href='#'>@Sprint-1</a></li>
+					<li><a href='#'>@smoke</a></li>
+					<li><a href='#'>@regression</a></li>
+					<li><a href='#'>@Create_Account</a></li>
+					<li><a href='#'>@Get_AccountDetails</a></li>
+					<li><a href='#'>@Update_Account</a></li>
+					<li><a href='#'>@Delete_Account</a></li>
+					<li class='divider'></li>
+					<li class='clear'><a href='#!' clear='true'>Clear Filters</a></li>
+				</ul>
+			</div>
+			<!-- category toggle -->
+
+			<!-- clear filters -->
+			<div class='chip transparent hide'>
+				<a class='' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+					<i class='material-icons'>close</i> Clear
+				</a>
+			</div>
+			<!-- clear filters -->
+
+			<!-- enable dashboard -->
+			<div id='toggle-test-view-charts' class='chip transparent'>
+				<a class='pink-text' id='enable-dashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+					<i class='material-icons'>track_changes</i> Dashboard
+				</a>
+			</div>
+			<!-- enable dashboard -->
+
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+
+<div id='test-view-charts' class='subview-full'>
+	<div id='charts-row' class='row nm-v nm-h'>
+		<div class='col s12 m6 l6 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Tests</div>
+				<div class='chart-box'>
+					<canvas id='parent-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span><span class='strong'>0</span> test(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong'>0</span> test(s) failed, <span class='strong'>39</span> others
+				</div>
+			</div>
+		</div>
+		
+		<div class='col s12 m6 l6 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Steps</div>
+				<div class='chart-box'>
+					<canvas id='child-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span><span class='strong'>0</span> step(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong'>0</span> step(s) failed, <span class='strong'>39</span> others
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Tests</h3>
+			<ul id='test-collection' class='test-collection'>
+				
+				
+				<li class='test displayed active has-leaf skip' status='skip' bdd='false' test-id='1'>
+					<div class='test-heading'>
+						<span class='test-name'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System</span>
+						<span class='test-time'>Jun 10, 2019 4:37:24 PM</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jun 10, 2019 4:37:24 PM</span>
+	<span class='label end-time'>Jun 10, 2019 4:37:25 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+362ms</span>
+</div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>@NWS-3</span>
+				<span class='category label white-text'>@author_sjena</span>
+				<span class='category label white-text'>@reviewer_gnpan</span>
+				<span class='category label white-text'>@Sprint-1</span>
+			</div>
+	</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1  skip' status='skip' test-id='2'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Scenario Outline: User should be able to register in the system with valid all inputs</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:24 PM</span>
+						<span class='node-duration'>0h 0m 0s+72ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>4:37:24 PM</td>
+													<td class='step-details'><table><tr><td>externalId</td><td>name</td><td>accountTypeCode</td><td>parentExternalId</td><td>fullName</td><td>phoneNumber</td><td>e-mail</td><td>addressLine1</td><td>addressLine2</td><td>zipCode</td><td>city</td></tr><tr><td>9999</td><td>demo</td><td>merchant</td><td>parentExternalId</td><td>fullName</td><td>phoneNumber</td><td>e-mail</td><td>addressLine1</td><td>addressLine2</td><td>zipCode</td><td>city</td></tr></table></td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+						<ul class='collapsible node-list' data-collapsible='accordion'>
+				<li class='node level-2  skip' status='skip' test-id='3'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Scenario: User should be able to register in the system with valid all inputs</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:24 PM</span>
+						<span class='node-duration'>0h 0m 0s+14ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<ul class='collapsible node-list' data-collapsible='accordion'>
+				<li class='node level-3 leaf skip' status='skip' test-id='4'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Given I have access to the application</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:24 PM</span>
+						<span class='node-duration'>0h 0m 0s+2ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='skip'>
+													<td class='status skip' title='skip' alt='skip'><i class='material-icons'>redo</i></td>
+													<td class='timestamp'>4:37:24 PM</td>
+													<td class='step-details'>undefined</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-3 leaf skip' status='skip' test-id='5'>
+					<div class='collapsible-header'>
+						<div class='node-name'>When I provide all details like "9999","demo","merchant","parentExternalId","fullName","phoneNumber","e-mail","addressLine1","addressLine2","zipCode","city"</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:24 PM</span>
+						<span class='node-duration'>0h 0m 0s+0ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='skip'>
+													<td class='status skip' title='skip' alt='skip'><i class='material-icons'>redo</i></td>
+													<td class='timestamp'>4:37:24 PM</td>
+													<td class='step-details'>undefined</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-3 leaf skip' status='skip' test-id='6'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Then the response code should be 201</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:24 PM</span>
+						<span class='node-duration'>0h 0m 0s+0ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='skip'>
+													<td class='status skip' title='skip' alt='skip'><i class='material-icons'>redo</i></td>
+													<td class='timestamp'>4:37:24 PM</td>
+													<td class='step-details'>undefined</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+						</ul>
+				</li>
+						</ul>
+				</li>
+				<li class='node level-1  skip' status='skip' test-id='7'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Scenario Outline: User should be able to get contact details with valid external id</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:24 PM</span>
+						<span class='node-duration'>0h 0m 0s+20ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>4:37:24 PM</td>
+													<td class='step-details'><table><tr><td>externalId</td><td>name</td><td>accountTypeCode</td><td>parentExternalId</td><td>fullName</td><td>phoneNumber</td><td>email</td><td>addressLine1</td><td>addressLine2</td><td>zipCode</td><td>city</td></tr><tr><td>12345</td><td>demo</td><td>merchant</td><td>parentExternalId</td><td>fullName</td><td>phoneNumber</td><td>email</td><td>addressLine1</td><td>addressLine2</td><td>zipCode</td><td>city</td></tr></table></td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+						<ul class='collapsible node-list' data-collapsible='accordion'>
+				<li class='node level-2  skip' status='skip' test-id='8'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Scenario: User should be able to get contact details with valid external id</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:24 PM</span>
+						<span class='node-duration'>0h 0m 0s+14ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<ul class='collapsible node-list' data-collapsible='accordion'>
+				<li class='node level-3 leaf skip' status='skip' test-id='9'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Given I have access to the application</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:24 PM</span>
+						<span class='node-duration'>0h 0m 0s+4ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='skip'>
+													<td class='status skip' title='skip' alt='skip'><i class='material-icons'>redo</i></td>
+													<td class='timestamp'>4:37:24 PM</td>
+													<td class='step-details'>undefined</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-3 leaf skip' status='skip' test-id='10'>
+					<div class='collapsible-header'>
+						<div class='node-name'>When I try to access my account details with externalId "12345"</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:24 PM</span>
+						<span class='node-duration'>0h 0m 0s+2ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='skip'>
+													<td class='status skip' title='skip' alt='skip'><i class='material-icons'>redo</i></td>
+													<td class='timestamp'>4:37:24 PM</td>
+													<td class='step-details'>undefined</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-3 leaf skip' status='skip' test-id='11'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Then the response code should be 200</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:24 PM</span>
+						<span class='node-duration'>0h 0m 0s+1ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='skip'>
+													<td class='status skip' title='skip' alt='skip'><i class='material-icons'>redo</i></td>
+													<td class='timestamp'>4:37:24 PM</td>
+													<td class='step-details'>undefined</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+						</ul>
+				</li>
+						</ul>
+				</li>
+				<li class='node level-1  skip' status='skip' test-id='12'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Scenario Outline: User should not be able to view account details with invalid external id</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:24 PM</span>
+						<span class='node-duration'>0h 0m 0s+13ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>4:37:24 PM</td>
+													<td class='step-details'><table><tr><td>externalId</td></tr><tr><td>qwe123rty</td></tr></table></td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+						<ul class='collapsible node-list' data-collapsible='accordion'>
+				<li class='node level-2  skip' status='skip' test-id='13'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Scenario: User should not be able to view account details with invalid external id</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:24 PM</span>
+						<span class='node-duration'>0h 0m 0s+7ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<ul class='collapsible node-list' data-collapsible='accordion'>
+				<li class='node level-3 leaf skip' status='skip' test-id='14'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Given I have access to the application</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:24 PM</span>
+						<span class='node-duration'>0h 0m 0s+1ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='skip'>
+													<td class='status skip' title='skip' alt='skip'><i class='material-icons'>redo</i></td>
+													<td class='timestamp'>4:37:24 PM</td>
+													<td class='step-details'>undefined</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-3 leaf skip' status='skip' test-id='15'>
+					<div class='collapsible-header'>
+						<div class='node-name'>When I try to get account details with invalid externalId "qwe123rty"</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:24 PM</span>
+						<span class='node-duration'>0h 0m 0s+0ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='skip'>
+													<td class='status skip' title='skip' alt='skip'><i class='material-icons'>redo</i></td>
+													<td class='timestamp'>4:37:24 PM</td>
+													<td class='step-details'>undefined</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-3 leaf skip' status='skip' test-id='16'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Then the response code should be 404</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:24 PM</span>
+						<span class='node-duration'>0h 0m 0s+0ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='skip'>
+													<td class='status skip' title='skip' alt='skip'><i class='material-icons'>redo</i></td>
+													<td class='timestamp'>4:37:24 PM</td>
+													<td class='step-details'>undefined</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+						</ul>
+				</li>
+						</ul>
+				</li>
+				<li class='node level-1  skip' status='skip' test-id='17'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Scenario Outline: User should be able to update her contact details with valid inputs</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:24 PM</span>
+						<span class='node-duration'>0h 0m 0s+17ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>4:37:24 PM</td>
+													<td class='step-details'><table><tr><td>externalId</td><td>fullName</td><td>phoneNumber</td><td>e-mail</td><td>addressLine1</td><td>addressLine2</td><td>zipCode</td><td>city</td></tr><tr><td>12345</td><td>demoUser</td><td>0987654321</td><td>demo.user@test.in</td><td>Demo address</td><td>Demo state</td><td>987654</td><td>demo</td></tr></table></td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+						<ul class='collapsible node-list' data-collapsible='accordion'>
+				<li class='node level-2  skip' status='skip' test-id='18'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Scenario: User should be able to update her contact details with valid inputs</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:24 PM</span>
+						<span class='node-duration'>0h 0m 0s+10ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<ul class='collapsible node-list' data-collapsible='accordion'>
+				<li class='node level-3 leaf skip' status='skip' test-id='19'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Given I have access to the application</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:24 PM</span>
+						<span class='node-duration'>0h 0m 0s+1ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='skip'>
+													<td class='status skip' title='skip' alt='skip'><i class='material-icons'>redo</i></td>
+													<td class='timestamp'>4:37:24 PM</td>
+													<td class='step-details'>undefined</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-3 leaf skip' status='skip' test-id='20'>
+					<div class='collapsible-header'>
+						<div class='node-name'>When I opt to update all details like "12345","demoUser","0987654321","demo.user@test.in","Demo address","Demo state","987654","demo"</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:24 PM</span>
+						<span class='node-duration'>0h 0m 0s+1ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='skip'>
+													<td class='status skip' title='skip' alt='skip'><i class='material-icons'>redo</i></td>
+													<td class='timestamp'>4:37:24 PM</td>
+													<td class='step-details'>undefined</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-3 leaf skip' status='skip' test-id='21'>
+					<div class='collapsible-header'>
+						<div class='node-name'>And the response code should be 200</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:24 PM</span>
+						<span class='node-duration'>0h 0m 0s+1ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='skip'>
+													<td class='status skip' title='skip' alt='skip'><i class='material-icons'>redo</i></td>
+													<td class='timestamp'>4:37:24 PM</td>
+													<td class='step-details'>undefined</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+						</ul>
+				</li>
+						</ul>
+				</li>
+				<li class='node level-1  skip' status='skip' test-id='22'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Scenario Outline: User should be able to update her contact details with only mandatory input</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:24 PM</span>
+						<span class='node-duration'>0h 0m 0s+17ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>4:37:24 PM</td>
+													<td class='step-details'><table><tr><td>fullName</td><td>phoneNumber</td><td>e-mail</td><td>addressLine1</td><td>addressLine2</td><td>zipCode</td><td>city</td><td>externalId</td></tr><tr><td>demoUserCHANGED</td><td>0987654321</td><td>demo.user@test.in</td><td>Demo address</td><td>Demo state</td><td>987654</td><td>demo</td><td>12345</td></tr></table></td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+						<ul class='collapsible node-list' data-collapsible='accordion'>
+				<li class='node level-2  skip' status='skip' test-id='23'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Scenario: User should be able to update her contact details with only mandatory input</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:24 PM</span>
+						<span class='node-duration'>0h 0m 0s+10ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<ul class='collapsible node-list' data-collapsible='accordion'>
+				<li class='node level-3 leaf skip' status='skip' test-id='24'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Given I have access to the application</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:24 PM</span>
+						<span class='node-duration'>0h 0m 0s+1ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='skip'>
+													<td class='status skip' title='skip' alt='skip'><i class='material-icons'>redo</i></td>
+													<td class='timestamp'>4:37:24 PM</td>
+													<td class='step-details'>undefined</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-3 leaf skip' status='skip' test-id='25'>
+					<div class='collapsible-header'>
+						<div class='node-name'>When I opt to update mandatory detail like fullname "demoUserCHANGED" with "12345"</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:24 PM</span>
+						<span class='node-duration'>0h 0m 0s+1ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='skip'>
+													<td class='status skip' title='skip' alt='skip'><i class='material-icons'>redo</i></td>
+													<td class='timestamp'>4:37:24 PM</td>
+													<td class='step-details'>undefined</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-3 leaf skip' status='skip' test-id='26'>
+					<div class='collapsible-header'>
+						<div class='node-name'>And the response code should be 200</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:24 PM</span>
+						<span class='node-duration'>0h 0m 0s+1ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='skip'>
+													<td class='status skip' title='skip' alt='skip'><i class='material-icons'>redo</i></td>
+													<td class='timestamp'>4:37:24 PM</td>
+													<td class='step-details'>undefined</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+						</ul>
+				</li>
+						</ul>
+				</li>
+				<li class='node level-1  skip' status='skip' test-id='27'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Scenario Outline: User should not be able to update account with invalid inputs</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:24 PM</span>
+						<span class='node-duration'>0h 0m 0s+37ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>4:37:24 PM</td>
+													<td class='step-details'><table><tr><td>fullName</td><td>phoneNumber</td><td>e-mail</td><td>addressLine1</td><td>addressLine2</td><td>zipCode</td><td>city</td><td>externalId</td></tr><tr><td></td><td>0987654321</td><td>demo.user@test.in</td><td>Demo address</td><td>Demo state</td><td>987654</td><td>demo</td><td>12345</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>12345</td></tr></table></td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+						<ul class='collapsible node-list' data-collapsible='accordion'>
+				<li class='node level-2  skip' status='skip' test-id='28'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Scenario: User should not be able to update account with invalid inputs</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:24 PM</span>
+						<span class='node-duration'>0h 0m 0s+9ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<ul class='collapsible node-list' data-collapsible='accordion'>
+				<li class='node level-3 leaf skip' status='skip' test-id='29'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Given I have access to the application</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:24 PM</span>
+						<span class='node-duration'>0h 0m 0s+1ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='skip'>
+													<td class='status skip' title='skip' alt='skip'><i class='material-icons'>redo</i></td>
+													<td class='timestamp'>4:37:24 PM</td>
+													<td class='step-details'>undefined</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-3 leaf skip' status='skip' test-id='30'>
+					<div class='collapsible-header'>
+						<div class='node-name'>When I opt to update all details like "12345","","0987654321","demo.user@test.in","Demo address","Demo state","987654","demo"</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:24 PM</span>
+						<span class='node-duration'>0h 0m 0s+1ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='skip'>
+													<td class='status skip' title='skip' alt='skip'><i class='material-icons'>redo</i></td>
+													<td class='timestamp'>4:37:24 PM</td>
+													<td class='step-details'>undefined</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-3 leaf skip' status='skip' test-id='31'>
+					<div class='collapsible-header'>
+						<div class='node-name'>And the response code should be 400</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:24 PM</span>
+						<span class='node-duration'>0h 0m 0s+1ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='skip'>
+													<td class='status skip' title='skip' alt='skip'><i class='material-icons'>redo</i></td>
+													<td class='timestamp'>4:37:24 PM</td>
+													<td class='step-details'>undefined</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+						</ul>
+				</li>
+				<li class='node level-2  skip' status='skip' test-id='32'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Scenario: User should not be able to update account with invalid inputs</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:24 PM</span>
+						<span class='node-duration'>0h 0m 0s+13ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<ul class='collapsible node-list' data-collapsible='accordion'>
+				<li class='node level-3 leaf skip' status='skip' test-id='33'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Given I have access to the application</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:25 PM</span>
+						<span class='node-duration'>0h 0m 0s+1ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='skip'>
+													<td class='status skip' title='skip' alt='skip'><i class='material-icons'>redo</i></td>
+													<td class='timestamp'>4:37:25 PM</td>
+													<td class='step-details'>undefined</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-3 leaf skip' status='skip' test-id='34'>
+					<div class='collapsible-header'>
+						<div class='node-name'>When I opt to update all details like "12345","","","","","","",""</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:25 PM</span>
+						<span class='node-duration'>0h 0m 0s+1ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='skip'>
+													<td class='status skip' title='skip' alt='skip'><i class='material-icons'>redo</i></td>
+													<td class='timestamp'>4:37:25 PM</td>
+													<td class='step-details'>undefined</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-3 leaf skip' status='skip' test-id='35'>
+					<div class='collapsible-header'>
+						<div class='node-name'>And the response code should be 400</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:25 PM</span>
+						<span class='node-duration'>0h 0m 0s+1ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='skip'>
+													<td class='status skip' title='skip' alt='skip'><i class='material-icons'>redo</i></td>
+													<td class='timestamp'>4:37:25 PM</td>
+													<td class='step-details'>undefined</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+						</ul>
+				</li>
+						</ul>
+				</li>
+				<li class='node level-1  skip' status='skip' test-id='36'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Scenario Outline: User should not be able to update account with invalid external id</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:25 PM</span>
+						<span class='node-duration'>0h 0m 0s+46ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>4:37:25 PM</td>
+													<td class='step-details'><table><tr><td>external id</td></tr><tr><td>qwe123ff</td></tr></table></td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+						<ul class='collapsible node-list' data-collapsible='accordion'>
+				<li class='node level-2  skip' status='skip' test-id='37'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Scenario: User should not be able to update account with invalid external id</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:25 PM</span>
+						<span class='node-duration'>0h 0m 0s+33ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<ul class='collapsible node-list' data-collapsible='accordion'>
+				<li class='node level-3 leaf skip' status='skip' test-id='38'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Given I have access to the application</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:25 PM</span>
+						<span class='node-duration'>0h 0m 0s+1ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='skip'>
+													<td class='status skip' title='skip' alt='skip'><i class='material-icons'>redo</i></td>
+													<td class='timestamp'>4:37:25 PM</td>
+													<td class='step-details'>undefined</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-3 leaf skip' status='skip' test-id='39'>
+					<div class='collapsible-header'>
+						<div class='node-name'>When I try to update account with invalid external id "qwe123ff"</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:25 PM</span>
+						<span class='node-duration'>0h 0m 0s+1ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='skip'>
+													<td class='status skip' title='skip' alt='skip'><i class='material-icons'>redo</i></td>
+													<td class='timestamp'>4:37:25 PM</td>
+													<td class='step-details'>undefined</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-3 leaf skip' status='skip' test-id='40'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Then the response code should be 400</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:25 PM</span>
+						<span class='node-duration'>0h 0m 0s+1ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='skip'>
+													<td class='status skip' title='skip' alt='skip'><i class='material-icons'>redo</i></td>
+													<td class='timestamp'>4:37:25 PM</td>
+													<td class='step-details'>undefined</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+						</ul>
+				</li>
+						</ul>
+				</li>
+				<li class='node level-1  skip' status='skip' test-id='41'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Scenario Outline: User should be able to delete I account using valid external Id</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:25 PM</span>
+						<span class='node-duration'>0h 0m 0s+13ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>4:37:25 PM</td>
+													<td class='step-details'><table><tr><td>external id</td></tr><tr><td>123456</td></tr></table></td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+						<ul class='collapsible node-list' data-collapsible='accordion'>
+				<li class='node level-2  skip' status='skip' test-id='42'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Scenario: User should be able to delete I account using valid external Id</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:25 PM</span>
+						<span class='node-duration'>0h 0m 0s+9ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<ul class='collapsible node-list' data-collapsible='accordion'>
+				<li class='node level-3 leaf skip' status='skip' test-id='43'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Given I have access to the application</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:25 PM</span>
+						<span class='node-duration'>0h 0m 0s+1ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='skip'>
+													<td class='status skip' title='skip' alt='skip'><i class='material-icons'>redo</i></td>
+													<td class='timestamp'>4:37:25 PM</td>
+													<td class='step-details'>undefined</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-3 leaf skip' status='skip' test-id='44'>
+					<div class='collapsible-header'>
+						<div class='node-name'>When I try to delete my account with external id  "123456"</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:25 PM</span>
+						<span class='node-duration'>0h 0m 0s+1ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='skip'>
+													<td class='status skip' title='skip' alt='skip'><i class='material-icons'>redo</i></td>
+													<td class='timestamp'>4:37:25 PM</td>
+													<td class='step-details'>undefined</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-3 leaf skip' status='skip' test-id='45'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Then the response code should be 200</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:25 PM</span>
+						<span class='node-duration'>0h 0m 0s+1ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='skip'>
+													<td class='status skip' title='skip' alt='skip'><i class='material-icons'>redo</i></td>
+													<td class='timestamp'>4:37:25 PM</td>
+													<td class='step-details'>undefined</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+						</ul>
+				</li>
+						</ul>
+				</li>
+				<li class='node level-1  skip' status='skip' test-id='46'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Scenario Outline: User should not be able to delete user account using invalid external Id</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:25 PM</span>
+						<span class='node-duration'>0h 0m 0s+36ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>4:37:25 PM</td>
+													<td class='step-details'><table><tr><td>external id</td></tr><tr><td>123456</td></tr></table></td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+						<ul class='collapsible node-list' data-collapsible='accordion'>
+				<li class='node level-2  skip' status='skip' test-id='47'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Scenario: User should not be able to delete user account using invalid external Id</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:25 PM</span>
+						<span class='node-duration'>0h 0m 0s+31ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<ul class='collapsible node-list' data-collapsible='accordion'>
+				<li class='node level-3 leaf skip' status='skip' test-id='48'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Given I have access to the application</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:25 PM</span>
+						<span class='node-duration'>0h 0m 0s+1ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='skip'>
+													<td class='status skip' title='skip' alt='skip'><i class='material-icons'>redo</i></td>
+													<td class='timestamp'>4:37:25 PM</td>
+													<td class='step-details'>undefined</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-3 leaf skip' status='skip' test-id='49'>
+					<div class='collapsible-header'>
+						<div class='node-name'>When I try to delete my account with invalid external Id "123456"</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:25 PM</span>
+						<span class='node-duration'>0h 0m 0s+1ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='skip'>
+													<td class='status skip' title='skip' alt='skip'><i class='material-icons'>redo</i></td>
+													<td class='timestamp'>4:37:25 PM</td>
+													<td class='step-details'>undefined</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-3 leaf skip' status='skip' test-id='50'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Then the response code should be 404</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:25 PM</span>
+						<span class='node-duration'>0h 0m 0s+2ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='skip'>
+													<td class='status skip' title='skip' alt='skip'><i class='material-icons'>redo</i></td>
+													<td class='timestamp'>4:37:25 PM</td>
+													<td class='step-details'>undefined</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+						</ul>
+				</li>
+						</ul>
+				</li>
+				<li class='node level-1  skip' status='skip' test-id='51'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Scenario Outline: User should be able to register in the system with mandatory inputs</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:25 PM</span>
+						<span class='node-duration'>0h 0m 0s+17ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>4:37:25 PM</td>
+													<td class='step-details'><table><tr><td>externalId</td><td>name</td><td>accountTypeCode</td><td>parentExternalId</td><td>fullName</td><td>phoneNumber</td><td>e-mail</td><td>addressLine1</td><td>addressLine2</td><td>zipCode</td><td>city</td></tr><tr><td>8888</td><td></td><td>merchant</td><td></td><td>fullName</td><td></td><td></td><td></td><td></td><td></td><td></td></tr></table></td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+						<ul class='collapsible node-list' data-collapsible='accordion'>
+				<li class='node level-2  skip' status='skip' test-id='52'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Scenario: User should be able to register in the system with mandatory inputs</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:25 PM</span>
+						<span class='node-duration'>0h 0m 0s+12ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<ul class='collapsible node-list' data-collapsible='accordion'>
+				<li class='node level-3 leaf skip' status='skip' test-id='53'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Given I have access to the application</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:25 PM</span>
+						<span class='node-duration'>0h 0m 0s+1ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='skip'>
+													<td class='status skip' title='skip' alt='skip'><i class='material-icons'>redo</i></td>
+													<td class='timestamp'>4:37:25 PM</td>
+													<td class='step-details'>undefined</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-3 leaf skip' status='skip' test-id='54'>
+					<div class='collapsible-header'>
+						<div class='node-name'>When I provide all details like "8888","","merchant","","fullName","","","","","",""</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:25 PM</span>
+						<span class='node-duration'>0h 0m 0s+3ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='skip'>
+													<td class='status skip' title='skip' alt='skip'><i class='material-icons'>redo</i></td>
+													<td class='timestamp'>4:37:25 PM</td>
+													<td class='step-details'>undefined</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-3 leaf skip' status='skip' test-id='55'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Then the response code should be 201</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:25 PM</span>
+						<span class='node-duration'>0h 0m 0s+1ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='skip'>
+													<td class='status skip' title='skip' alt='skip'><i class='material-icons'>redo</i></td>
+													<td class='timestamp'>4:37:25 PM</td>
+													<td class='step-details'>undefined</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+						</ul>
+				</li>
+						</ul>
+				</li>
+				<li class='node level-1  skip' status='skip' test-id='56'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Scenario Outline: User should not be able to register in the system with invalid inputs</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:25 PM</span>
+						<span class='node-duration'>0h 0m 0s+23ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>4:37:25 PM</td>
+													<td class='step-details'><table><tr><td>externalId</td><td>name</td><td>accountTypeCode</td><td>parentExternalId</td><td>fullName</td><td>phoneNumber</td><td>e-mail</td><td>addressLine1</td><td>addressLine2</td><td>zipCode</td><td>city</td></tr><tr><td>7777</td><td></td><td>merchant</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>6666</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></table></td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+						<ul class='collapsible node-list' data-collapsible='accordion'>
+				<li class='node level-2  skip' status='skip' test-id='57'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Scenario: User should not be able to register in the system with invalid inputs</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:25 PM</span>
+						<span class='node-duration'>0h 0m 0s+7ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<ul class='collapsible node-list' data-collapsible='accordion'>
+				<li class='node level-3 leaf skip' status='skip' test-id='58'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Given I have access to the application</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:25 PM</span>
+						<span class='node-duration'>0h 0m 0s+1ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='skip'>
+													<td class='status skip' title='skip' alt='skip'><i class='material-icons'>redo</i></td>
+													<td class='timestamp'>4:37:25 PM</td>
+													<td class='step-details'>undefined</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-3 leaf skip' status='skip' test-id='59'>
+					<div class='collapsible-header'>
+						<div class='node-name'>When I provide all details like "7777","","merchant","","","","","","","",""</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:25 PM</span>
+						<span class='node-duration'>0h 0m 0s+1ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='skip'>
+													<td class='status skip' title='skip' alt='skip'><i class='material-icons'>redo</i></td>
+													<td class='timestamp'>4:37:25 PM</td>
+													<td class='step-details'>undefined</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-3 leaf skip' status='skip' test-id='60'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Then the response code should be 400</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:25 PM</span>
+						<span class='node-duration'>0h 0m 0s+1ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='skip'>
+													<td class='status skip' title='skip' alt='skip'><i class='material-icons'>redo</i></td>
+													<td class='timestamp'>4:37:25 PM</td>
+													<td class='step-details'>undefined</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+						</ul>
+				</li>
+				<li class='node level-2  skip' status='skip' test-id='61'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Scenario: User should not be able to register in the system with invalid inputs</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:25 PM</span>
+						<span class='node-duration'>0h 0m 0s+8ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<ul class='collapsible node-list' data-collapsible='accordion'>
+				<li class='node level-3 leaf skip' status='skip' test-id='62'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Given I have access to the application</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:25 PM</span>
+						<span class='node-duration'>0h 0m 0s+1ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='skip'>
+													<td class='status skip' title='skip' alt='skip'><i class='material-icons'>redo</i></td>
+													<td class='timestamp'>4:37:25 PM</td>
+													<td class='step-details'>undefined</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-3 leaf skip' status='skip' test-id='63'>
+					<div class='collapsible-header'>
+						<div class='node-name'>When I provide all details like "6666","","","","","","","","","",""</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:25 PM</span>
+						<span class='node-duration'>0h 0m 0s+1ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='skip'>
+													<td class='status skip' title='skip' alt='skip'><i class='material-icons'>redo</i></td>
+													<td class='timestamp'>4:37:25 PM</td>
+													<td class='step-details'>undefined</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-3 leaf skip' status='skip' test-id='64'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Then the response code should be 400</div>						
+						<span class='node-time'>Jun 10, 2019 4:37:25 PM</span>
+						<span class='node-duration'>0h 0m 0s+1ms</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='skip'>
+													<td class='status skip' title='skip' alt='skip'><i class='material-icons'>redo</i></td>
+													<td class='timestamp'>4:37:25 PM</td>
+													<td class='step-details'>undefined</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+						</ul>
+				</li>
+						</ul>
+				</li>
+	</ul>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- subview left -->
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='test-name'></h5>
+
+			<div id='step-filters' class="right">
+				<span class="blue-text" status="info" alt="info" title="info"><i class="material-icons">info_outline</i></span>
+				<span class="green-text" status="pass" alt="pass" title="pass"><i class="material-icons">check_circle</i></span>
+				<span class="red-text" status="fail" alt="fail" title="fail"><i class="material-icons">cancel</i></span>
+				<span class="red-text text-darken-4" status="fatal" alt="fatal" title="fatal"><i class="material-icons">cancel</i></span>
+				<span class="pink-text text-lighten-1" status="error" alt="error" title="error"><i class="material-icons">error</i></span>
+				<span class="orange-text" alt="warning" status="warning" title="warning"><i class="material-icons">warning</i></span>
+				<span class="teal-text" status="skip" alt="skip" title="skip"><i class="material-icons">redo</i></span>
+				<span status="clear" alt="Clear filters" title="Clear filters"><i class="material-icons">clear</i></span>
+			</div>
+		</div>
+	</div>
+	<!-- subview right -->
+
+</div>
+<!-- test view --><div id='category-view' class='view hide'>
+
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+				
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Categories</h3>
+			<ul id='category-collection' class='category-collection'>
+				
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@NWS-3</span>
+						<span class='category-status right'>
+							<span class='label others'>14</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							
+							
+							<span class='label yellow darken-2 white-text'>Others: 14</span>
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jun 10, 2019 4:37:24 PM</td>
+										<td class='linked' test-id='1'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:24 PM</td>
+										<td class='linked' test-id='3'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should be able to register in the system with valid all inputs.Scenario: User should be able to register in the system with valid all inputs</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:24 PM</td>
+										<td class='linked' test-id='8'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should be able to get contact details with valid external id.Scenario: User should be able to get contact details with valid external id</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:24 PM</td>
+										<td class='linked' test-id='13'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should not be able to view account details with invalid external id.Scenario: User should not be able to view account details with invalid external id</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:24 PM</td>
+										<td class='linked' test-id='18'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should be able to update her contact details with valid inputs.Scenario: User should be able to update her contact details with valid inputs</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:24 PM</td>
+										<td class='linked' test-id='23'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should be able to update her contact details with only mandatory input.Scenario: User should be able to update her contact details with only mandatory input</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:24 PM</td>
+										<td class='linked' test-id='28'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should not be able to update account with invalid inputs.Scenario: User should not be able to update account with invalid inputs</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:24 PM</td>
+										<td class='linked' test-id='32'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should not be able to update account with invalid inputs.Scenario: User should not be able to update account with invalid inputs</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:25 PM</td>
+										<td class='linked' test-id='37'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should not be able to update account with invalid external id.Scenario: User should not be able to update account with invalid external id</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:25 PM</td>
+										<td class='linked' test-id='42'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should be able to delete I account using valid external Id.Scenario: User should be able to delete I account using valid external Id</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:25 PM</td>
+										<td class='linked' test-id='47'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should not be able to delete user account using invalid external Id.Scenario: User should not be able to delete user account using invalid external Id</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:25 PM</td>
+										<td class='linked' test-id='52'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should be able to register in the system with mandatory inputs.Scenario: User should be able to register in the system with mandatory inputs</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:25 PM</td>
+										<td class='linked' test-id='57'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should not be able to register in the system with invalid inputs.Scenario: User should not be able to register in the system with invalid inputs</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:25 PM</td>
+										<td class='linked' test-id='61'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should not be able to register in the system with invalid inputs.Scenario: User should not be able to register in the system with invalid inputs</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@author_sjena</span>
+						<span class='category-status right'>
+							<span class='label others'>14</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							
+							
+							<span class='label yellow darken-2 white-text'>Others: 14</span>
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jun 10, 2019 4:37:24 PM</td>
+										<td class='linked' test-id='1'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:24 PM</td>
+										<td class='linked' test-id='3'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should be able to register in the system with valid all inputs.Scenario: User should be able to register in the system with valid all inputs</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:24 PM</td>
+										<td class='linked' test-id='8'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should be able to get contact details with valid external id.Scenario: User should be able to get contact details with valid external id</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:24 PM</td>
+										<td class='linked' test-id='13'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should not be able to view account details with invalid external id.Scenario: User should not be able to view account details with invalid external id</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:24 PM</td>
+										<td class='linked' test-id='18'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should be able to update her contact details with valid inputs.Scenario: User should be able to update her contact details with valid inputs</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:24 PM</td>
+										<td class='linked' test-id='23'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should be able to update her contact details with only mandatory input.Scenario: User should be able to update her contact details with only mandatory input</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:24 PM</td>
+										<td class='linked' test-id='28'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should not be able to update account with invalid inputs.Scenario: User should not be able to update account with invalid inputs</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:24 PM</td>
+										<td class='linked' test-id='32'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should not be able to update account with invalid inputs.Scenario: User should not be able to update account with invalid inputs</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:25 PM</td>
+										<td class='linked' test-id='37'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should not be able to update account with invalid external id.Scenario: User should not be able to update account with invalid external id</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:25 PM</td>
+										<td class='linked' test-id='42'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should be able to delete I account using valid external Id.Scenario: User should be able to delete I account using valid external Id</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:25 PM</td>
+										<td class='linked' test-id='47'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should not be able to delete user account using invalid external Id.Scenario: User should not be able to delete user account using invalid external Id</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:25 PM</td>
+										<td class='linked' test-id='52'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should be able to register in the system with mandatory inputs.Scenario: User should be able to register in the system with mandatory inputs</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:25 PM</td>
+										<td class='linked' test-id='57'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should not be able to register in the system with invalid inputs.Scenario: User should not be able to register in the system with invalid inputs</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:25 PM</td>
+										<td class='linked' test-id='61'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should not be able to register in the system with invalid inputs.Scenario: User should not be able to register in the system with invalid inputs</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@reviewer_gnpan</span>
+						<span class='category-status right'>
+							<span class='label others'>14</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							
+							
+							<span class='label yellow darken-2 white-text'>Others: 14</span>
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jun 10, 2019 4:37:24 PM</td>
+										<td class='linked' test-id='1'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:24 PM</td>
+										<td class='linked' test-id='3'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should be able to register in the system with valid all inputs.Scenario: User should be able to register in the system with valid all inputs</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:24 PM</td>
+										<td class='linked' test-id='8'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should be able to get contact details with valid external id.Scenario: User should be able to get contact details with valid external id</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:24 PM</td>
+										<td class='linked' test-id='13'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should not be able to view account details with invalid external id.Scenario: User should not be able to view account details with invalid external id</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:24 PM</td>
+										<td class='linked' test-id='18'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should be able to update her contact details with valid inputs.Scenario: User should be able to update her contact details with valid inputs</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:24 PM</td>
+										<td class='linked' test-id='23'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should be able to update her contact details with only mandatory input.Scenario: User should be able to update her contact details with only mandatory input</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:24 PM</td>
+										<td class='linked' test-id='28'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should not be able to update account with invalid inputs.Scenario: User should not be able to update account with invalid inputs</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:24 PM</td>
+										<td class='linked' test-id='32'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should not be able to update account with invalid inputs.Scenario: User should not be able to update account with invalid inputs</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:25 PM</td>
+										<td class='linked' test-id='37'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should not be able to update account with invalid external id.Scenario: User should not be able to update account with invalid external id</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:25 PM</td>
+										<td class='linked' test-id='42'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should be able to delete I account using valid external Id.Scenario: User should be able to delete I account using valid external Id</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:25 PM</td>
+										<td class='linked' test-id='47'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should not be able to delete user account using invalid external Id.Scenario: User should not be able to delete user account using invalid external Id</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:25 PM</td>
+										<td class='linked' test-id='52'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should be able to register in the system with mandatory inputs.Scenario: User should be able to register in the system with mandatory inputs</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:25 PM</td>
+										<td class='linked' test-id='57'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should not be able to register in the system with invalid inputs.Scenario: User should not be able to register in the system with invalid inputs</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:25 PM</td>
+										<td class='linked' test-id='61'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should not be able to register in the system with invalid inputs.Scenario: User should not be able to register in the system with invalid inputs</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@Sprint-1</span>
+						<span class='category-status right'>
+							<span class='label others'>14</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							
+							
+							<span class='label yellow darken-2 white-text'>Others: 14</span>
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jun 10, 2019 4:37:24 PM</td>
+										<td class='linked' test-id='1'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:24 PM</td>
+										<td class='linked' test-id='3'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should be able to register in the system with valid all inputs.Scenario: User should be able to register in the system with valid all inputs</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:24 PM</td>
+										<td class='linked' test-id='8'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should be able to get contact details with valid external id.Scenario: User should be able to get contact details with valid external id</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:24 PM</td>
+										<td class='linked' test-id='13'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should not be able to view account details with invalid external id.Scenario: User should not be able to view account details with invalid external id</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:24 PM</td>
+										<td class='linked' test-id='18'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should be able to update her contact details with valid inputs.Scenario: User should be able to update her contact details with valid inputs</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:24 PM</td>
+										<td class='linked' test-id='23'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should be able to update her contact details with only mandatory input.Scenario: User should be able to update her contact details with only mandatory input</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:24 PM</td>
+										<td class='linked' test-id='28'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should not be able to update account with invalid inputs.Scenario: User should not be able to update account with invalid inputs</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:24 PM</td>
+										<td class='linked' test-id='32'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should not be able to update account with invalid inputs.Scenario: User should not be able to update account with invalid inputs</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:25 PM</td>
+										<td class='linked' test-id='37'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should not be able to update account with invalid external id.Scenario: User should not be able to update account with invalid external id</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:25 PM</td>
+										<td class='linked' test-id='42'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should be able to delete I account using valid external Id.Scenario: User should be able to delete I account using valid external Id</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:25 PM</td>
+										<td class='linked' test-id='47'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should not be able to delete user account using invalid external Id.Scenario: User should not be able to delete user account using invalid external Id</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:25 PM</td>
+										<td class='linked' test-id='52'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should be able to register in the system with mandatory inputs.Scenario: User should be able to register in the system with mandatory inputs</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:25 PM</td>
+										<td class='linked' test-id='57'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should not be able to register in the system with invalid inputs.Scenario: User should not be able to register in the system with invalid inputs</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:25 PM</td>
+										<td class='linked' test-id='61'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should not be able to register in the system with invalid inputs.Scenario: User should not be able to register in the system with invalid inputs</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@smoke</span>
+						<span class='category-status right'>
+							<span class='label others'>4</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							
+							
+							<span class='label yellow darken-2 white-text'>Others: 4</span>
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jun 10, 2019 4:37:24 PM</td>
+										<td class='linked' test-id='3'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should be able to register in the system with valid all inputs.Scenario: User should be able to register in the system with valid all inputs</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:24 PM</td>
+										<td class='linked' test-id='8'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should be able to get contact details with valid external id.Scenario: User should be able to get contact details with valid external id</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:24 PM</td>
+										<td class='linked' test-id='18'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should be able to update her contact details with valid inputs.Scenario: User should be able to update her contact details with valid inputs</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:25 PM</td>
+										<td class='linked' test-id='42'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should be able to delete I account using valid external Id.Scenario: User should be able to delete I account using valid external Id</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@regression</span>
+						<span class='category-status right'>
+							<span class='label others'>4</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							
+							
+							<span class='label yellow darken-2 white-text'>Others: 4</span>
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jun 10, 2019 4:37:24 PM</td>
+										<td class='linked' test-id='3'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should be able to register in the system with valid all inputs.Scenario: User should be able to register in the system with valid all inputs</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:24 PM</td>
+										<td class='linked' test-id='8'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should be able to get contact details with valid external id.Scenario: User should be able to get contact details with valid external id</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:24 PM</td>
+										<td class='linked' test-id='18'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should be able to update her contact details with valid inputs.Scenario: User should be able to update her contact details with valid inputs</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:25 PM</td>
+										<td class='linked' test-id='42'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should be able to delete I account using valid external Id.Scenario: User should be able to delete I account using valid external Id</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@Create_Account</span>
+						<span class='category-status right'>
+							<span class='label others'>4</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							
+							
+							<span class='label yellow darken-2 white-text'>Others: 4</span>
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jun 10, 2019 4:37:24 PM</td>
+										<td class='linked' test-id='3'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should be able to register in the system with valid all inputs.Scenario: User should be able to register in the system with valid all inputs</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:25 PM</td>
+										<td class='linked' test-id='52'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should be able to register in the system with mandatory inputs.Scenario: User should be able to register in the system with mandatory inputs</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:25 PM</td>
+										<td class='linked' test-id='57'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should not be able to register in the system with invalid inputs.Scenario: User should not be able to register in the system with invalid inputs</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:25 PM</td>
+										<td class='linked' test-id='61'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should not be able to register in the system with invalid inputs.Scenario: User should not be able to register in the system with invalid inputs</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@Get_AccountDetails</span>
+						<span class='category-status right'>
+							<span class='label others'>2</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							
+							
+							<span class='label yellow darken-2 white-text'>Others: 2</span>
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jun 10, 2019 4:37:24 PM</td>
+										<td class='linked' test-id='8'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should be able to get contact details with valid external id.Scenario: User should be able to get contact details with valid external id</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:24 PM</td>
+										<td class='linked' test-id='13'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should not be able to view account details with invalid external id.Scenario: User should not be able to view account details with invalid external id</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@Update_Account</span>
+						<span class='category-status right'>
+							<span class='label others'>5</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							
+							
+							<span class='label yellow darken-2 white-text'>Others: 5</span>
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jun 10, 2019 4:37:24 PM</td>
+										<td class='linked' test-id='18'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should be able to update her contact details with valid inputs.Scenario: User should be able to update her contact details with valid inputs</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:24 PM</td>
+										<td class='linked' test-id='23'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should be able to update her contact details with only mandatory input.Scenario: User should be able to update her contact details with only mandatory input</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:24 PM</td>
+										<td class='linked' test-id='28'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should not be able to update account with invalid inputs.Scenario: User should not be able to update account with invalid inputs</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:24 PM</td>
+										<td class='linked' test-id='32'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should not be able to update account with invalid inputs.Scenario: User should not be able to update account with invalid inputs</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:25 PM</td>
+										<td class='linked' test-id='37'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should not be able to update account with invalid external id.Scenario: User should not be able to update account with invalid external id</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@Delete_Account</span>
+						<span class='category-status right'>
+							<span class='label others'>2</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							
+							
+							<span class='label yellow darken-2 white-text'>Others: 2</span>
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jun 10, 2019 4:37:25 PM</td>
+										<td class='linked' test-id='42'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should be able to delete I account using valid external Id.Scenario: User should be able to delete I account using valid external Id</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+									<tr>
+										<td>Jun 10, 2019 4:37:25 PM</td>
+										<td class='linked' test-id='47'>As a User on the Nodes Marketplace, when user wants to trade on the marketplace the System.Scenario Outline: User should not be able to delete user account using invalid external Id.Scenario: User should not be able to delete user account using invalid external Id</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+
+			</ul>
+		</div>
+	</div>
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='category-name'></h5>
+		</div>
+	</div>
+</div>
+<!-- category view --><!-- exception view --><div id='dashboard-view' class='view hide'>
+	<div class='card-panel transparent np-v'>
+		<h5>Dashboard</h5>
+
+		<div class='row'>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Tests
+					<div class='panel-lead'>39</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Steps
+					<div class='panel-lead'>39</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Start
+					<div class='panel-lead'>Jun 10, 2019 4:37:24 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+			 		End
+			 		<div class='panel-lead'>Jun 10, 2019 4:37:25 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Time Taken
+					<div class='panel-lead'>880ms</div>
+				</div>
+			</div>
+			<div class='col s4'>
+				<div class='card-panel environment'>
+					<span class='right label cyan white-text'>Environment</span><p>&nbsp;</p>
+					
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Value</th>
+						</tr>
+							<tr>
+								<td>User Name</td>
+								<td>SJ</td>
+							</tr>
+							<tr>
+								<td>Application Name</td>
+								<td>NWS</td>
+							</tr>
+							<tr>
+								<td>Operating System Type</td>
+								<td>Windows 10</td>
+							</tr>
+							<tr>
+								<td>Environment</td>
+								<td>Test</td>
+							</tr>
+					</table>
+				</div>
+			</div>
+			<div class='col s4'>
+				<div class='card-panel'>
+					<span class='right label cyan white-text'>Categories</span><p>&nbsp;</p>
+					
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Passed</th>
+							<th>Failed</th>
+							<th>Others</th>
+						</tr>
+						<tr>
+							<td>@NWS-3</td>
+							<td>0</td>
+							<td>0</td>
+							<td>14</td>
+						</tr>
+						<tr>
+							<td>@author_sjena</td>
+							<td>0</td>
+							<td>0</td>
+							<td>14</td>
+						</tr>
+						<tr>
+							<td>@reviewer_gnpan</td>
+							<td>0</td>
+							<td>0</td>
+							<td>14</td>
+						</tr>
+						<tr>
+							<td>@Sprint-1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>14</td>
+						</tr>
+						<tr>
+							<td>@smoke</td>
+							<td>0</td>
+							<td>0</td>
+							<td>4</td>
+						</tr>
+						<tr>
+							<td>@regression</td>
+							<td>0</td>
+							<td>0</td>
+							<td>4</td>
+						</tr>
+						<tr>
+							<td>@Create_Account</td>
+							<td>0</td>
+							<td>0</td>
+							<td>4</td>
+						</tr>
+						<tr>
+							<td>@Get_AccountDetails</td>
+							<td>0</td>
+							<td>0</td>
+							<td>2</td>
+						</tr>
+						<tr>
+							<td>@Update_Account</td>
+							<td>0</td>
+							<td>0</td>
+							<td>5</td>
+						</tr>
+						<tr>
+							<td>@Delete_Account</td>
+							<td>0</td>
+							<td>0</td>
+							<td>2</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- dashboard view --><div id='testrunner-logs-view' class='view hide'>
+	<div class='card-panel transparent np-v'>
+		<h5>TestRunner Logs</h5>
+		
+		<div class='card-panel'>
+				Test Execution Cucumber Report
+		</div>
+	</div>
+</div>
+<!-- testrunner-logs view -->
+		</div>
+		<!-- container -->
+
+		<script>
+			var statusGroup = {
+				passParent: 0,
+				failParent: 0,
+				fatalParent: 0,
+				errorParent: 0,
+				warningParent: 0,
+				skipParent: 39,
+				exceptionsParent: 39,
+				
+				passChild: 0,
+				failChild: 0,
+				fatalChild: 0,
+				errorChild: 0,
+				warningChild: 0,
+				skipChild: 39,
+				infoChild: 0,
+				exceptionsChild: 39,
+				
+				passGrandChild: 0,
+				failGrandChild: 0,
+				fatalGrandChild: 0,
+				errorGrandChild: 0,
+				warningGrandChild: 0,
+				skipGrandChild: 0,
+				infoGrandChild: 0,
+				exceptionsGrandChild: 0,
+			};
+		</script>
+		
+			<script src='http://cdn.rawgit.com/anshooarora/extentreports-java/9fa70d0ed9c34a8ed445ceee3494d3d7de7f8918/dist/js/extent.js' type='text/javascript'></script>
+		
+		
+	</body>
+	
+</html>
