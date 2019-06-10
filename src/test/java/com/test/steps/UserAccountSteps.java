@@ -9,7 +9,7 @@ import io.restassured.response.Response;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import com.test.services.UserAccountPage;
+import com.test.services.*;
 
 /**
  *

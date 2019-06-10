@@ -2,10 +2,11 @@ package com.test.steps;
 
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
-import org.apache.log4j.xml.DOMConfigurator;
 import utils.Log;
 import utils.ReadConfigFile;
 import utils.RestUtil;
+
+import org.apache.log4j.xml.DOMConfigurator;
 
 public class MasterHooks {
 
